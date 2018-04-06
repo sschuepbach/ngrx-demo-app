@@ -7,7 +7,7 @@ import {MaterialModule} from '../material/material.module';
 import {AddAddressComponent} from './containers/add-address';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
-import * as fromNewAddress from './reducers/address';
+import * as fromAddress from './reducers/address';
 import { EffectsModule } from '@ngrx/effects';
 import { AddressEffects } from './effects/address';
 
@@ -22,7 +22,7 @@ const routes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature('newAddress', fromNewAddress.reducer),
+    StoreModule.forFeature('address', fromAddress.reducer),
     EffectsModule.forFeature([AddressEffects]),
   ],
   declarations: [AddAddressComponent],

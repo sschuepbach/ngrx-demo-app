@@ -1,39 +1,48 @@
-import {AddressActions, AddressActionTypes} from '../actions/address';
-import {createEntityAdapter, EntityState} from '@ngrx/entity';
-import {Address} from '../../shared/models/address';
+import {EntityState} from '@ngrx/entity';
 
-const addressAdapter = createEntityAdapter<Address>({
-  selectId: (address: Address) => address.id,
-  sortComparer: sortByName
+import * as fromAdapter from './address.adapter';
+import * as fromActions from '../actions/address';
+import {Address} from '../../shared/models/address';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+
+
+export interface State extends EntityState<Address> {
+}
+
+export const initialState: State = fromAdapter.adapter.getInitialState({
+  selectedAddressId: null
 });
 
-export function sortByName(addr1: Address, addr2: Address): number {
-  return addr1.name.localeCompare(addr2.name);
-}
-
-export interface AddressState extends EntityState<Address> {
-}
-
-export const initialState: AddressState = addressAdapter.getInitialState();
-
-export function reducer(state = initialState, action: AddressActions): AddressState {
+export function reducer(state = initialState, action: fromActions.AddressActions): State {
   switch (action.type) {
 
-    case AddressActionTypes.AddAddressAction:
-      return addressAdapter.addOne(action.payload.address, state);
+    case fromActions.AddressActionTypes.AddAddressAction: {
+      return fromAdapter.adapter.addOne(action.payload.address, state);
+    }
 
-    case AddressActionTypes.ModifyAddressAction:
-      return addressAdapter.updateOne({
+    case fromActions.AddressActionTypes.ModifyAddressAction: {
+      return fromAdapter.adapter.updateOne({
         id: action.payload.id,
         changes: action.payload.changes
       }, state);
+    }
 
-    case AddressActionTypes.RemoveAddressAction:
-      return addressAdapter.removeOne(action.payload.id, state);
+    case fromActions.AddressActionTypes.RemoveAddressAction: {
+      return fromAdapter.adapter.removeOne(action.payload.id, state);
+    }
 
     // TODO: Add other (success / fail) actions
 
-    default:
+    default: {
       return state;
+    }
+
   }
 }
+
+export const getArticleState = createFeatureSelector<State>('articleState');
+
+export const selectArticleIds = createSelector(getArticleState, fromAdapter.selectAddressIds);
+export const selectArticleEntities = createSelector(getArticleState, fromAdapter.selectAddressEntities);
+export const selectAllArticles = createSelector(getArticleState, fromAdapter.selectAllAddresses);
+export const articlesCount = createSelector(getArticleState, fromAdapter.addressesCount);

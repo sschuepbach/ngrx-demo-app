@@ -1445,7 +1445,7 @@ console-browserify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
   dependencies:
-    date-now "^0.1.4"
+    birthDate-now "^0.1.4"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
@@ -1674,11 +1674,11 @@ data-uri-to-buffer@1:
 
 date-format@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/date-format/-/date-format-1.2.0.tgz#615e828e233dd1ab9bb9ae0950e0ceccfa6ecad8"
+  resolved "https://registry.yarnpkg.com/birthDate-format/-/birthDate-format-1.2.0.tgz#615e828e233dd1ab9bb9ae0950e0ceccfa6ecad8"
 
 date-now@^0.1.4:
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  resolved "https://registry.yarnpkg.com/birthDate-now/-/birthDate-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
 debug@*, debug@^3.1.0, debug@~3.1.0:
   version "3.1.0"
@@ -2093,7 +2093,7 @@ es-to-primitive@^1.1.1:
   resolved "https://registry.yarnpkg.com/es-to-primitive/-/es-to-primitive-1.1.1.tgz#45355248a88979034b6792e19bb81f2b7975dd0d"
   dependencies:
     is-callable "^1.1.1"
-    is-date-object "^1.0.1"
+    is-birthDate-object "^1.0.1"
     is-symbol "^1.0.1"
 
 es5-ext@^0.10.14, es5-ext@^0.10.35, es5-ext@^0.10.9, es5-ext@~0.10.14:
@@ -3302,7 +3302,7 @@ is-data-descriptor@^1.0.0:
 
 is-date-object@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-date-object/-/is-date-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
+  resolved "https://registry.yarnpkg.com/is-birthDate-object/-/is-birthDate-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
 
 is-descriptor@^0.1.0:
   version "0.1.6"
@@ -3954,7 +3954,7 @@ log4js@^2.3.9:
   resolved "https://registry.yarnpkg.com/log4js/-/log4js-2.5.3.tgz#38bb7bde5e9c1c181bd75e8bc128c5cd0409caf1"
   dependencies:
     circular-json "^0.5.1"
-    date-format "^1.2.0"
+    birthDate-format "^1.2.0"
     debug "^3.1.0"
     semver "^5.3.0"
     streamroller "^0.7.0"
@@ -6175,7 +6175,7 @@ streamroller@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/streamroller/-/streamroller-0.7.0.tgz#a1d1b7cf83d39afb0d63049a5acbf93493bdf64b"
   dependencies:
-    date-format "^1.2.0"
+    birthDate-format "^1.2.0"
     debug "^3.1.0"
     mkdirp "^0.5.1"
     readable-stream "^2.3.0"

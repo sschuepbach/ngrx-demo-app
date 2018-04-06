@@ -5,8 +5,8 @@ import { AddressActions, AddressActionTypes } from '../actions/address';
 @Injectable()
 export class AddressEffects {
 
-  @Effect()
+/*  @Effect()
   effect$ = this.actions$.ofType(AddressActionTypes.AddAddressAction);
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions) {}*/
 }

@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
-import {AddAddress} from '../actions/address';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
 import {Address} from '../../shared/models/address';
+import * as AddressActions from '../actions/address';
+import * as fromAddress from '../reducers/address';
 
 @Component({
   selector: 'app-add-address',
@@ -57,7 +59,7 @@ export class AddAddressComponent {
 
   addressForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<Address>) {
+  constructor(private fb: FormBuilder, private store: Store<fromAddress.State>) {
     this.createForm();
   }
 
@@ -70,10 +72,10 @@ export class AddAddressComponent {
     });
   }
 
-  private saveAddress() {
+  saveAddress() {
     const address: Address = this.addressForm.getRawValue();
-    address.id = "awfe";
-    this.store.dispatch(new AddAddress({address: address}));
+    address.id = Math.random().toString().substr(2);
+    this.store.dispatch(new AddressActions.AddAddress({address: address}));
   }
 
 }

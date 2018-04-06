@@ -2,6 +2,6 @@ export interface Address {
   id: string;
   name: string;
   firstname: string;
-  date: string;
+  birthDate: string;
   wantsAds: boolean;
 }
