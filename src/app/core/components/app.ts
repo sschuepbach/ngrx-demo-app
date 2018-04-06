@@ -16,7 +16,7 @@ import {Component} from '@angular/core';
     </div>
   `,
   styles: [
-    '.container {min-height:100%;}'
+    '.container {min-height:100vh;}'
   ]
 })
 export class AppComponent {

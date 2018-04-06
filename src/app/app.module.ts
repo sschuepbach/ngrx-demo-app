@@ -9,7 +9,13 @@ import {environment} from '../environments/environment';
 import {EffectsModule} from '@ngrx/effects';
 import {AppEffects} from './app.effects';
 import {CoreModule} from './core/core.module';
+import {RouterModule, Routes} from '@angular/router';
+import {NotFoundPageComponent} from './core/components/not-found-page';
 
+const routes: Routes = [
+  {path: '', redirectTo: '/addresses', pathMatch: 'full'},
+  {path: '**', component: NotFoundPageComponent}
+];
 
 @NgModule({
   imports: [
@@ -17,7 +23,8 @@ import {CoreModule} from './core/core.module';
     CoreModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects]),
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
