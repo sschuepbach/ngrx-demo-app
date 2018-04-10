@@ -1,10 +1,14 @@
 import {Component} from '@angular/core';
+import {select, Store} from '@ngrx/store';
+
+import * as fromRoot from '../../reducers';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-main',
   template: `
     <div fxLayout="row">
-      <div fxFlex="200px" class="menu">
+      <div fxFlex="200px" class="menu" *ngIf="visibleMenu$ | async">
         <app-menu-entries></app-menu-entries>
       </div>
       <div fxFlex class="content">
@@ -18,7 +22,10 @@ import {Component} from '@angular/core';
 })
 export class MainComponent {
 
-  constructor() {
+  visibleMenu$: Observable<boolean>;
+
+  constructor(private store: Store<fromRoot.State>) {
+    this.visibleMenu$ = store.pipe(select(fromRoot.getMenuVisibility));
   }
 
 }

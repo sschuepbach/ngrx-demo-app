@@ -8,7 +8,7 @@ import {AddressesEditModule} from '../addresses-edit/addresses-edit.module';
 
 import {AppComponent} from './components/app';
 import {FooterComponent} from './components/footer';
-import {HeaderComponent} from './components/header';
+import {HeaderComponent} from './containers/header';
 import {MainComponent} from './containers/main';
 import {MenuEntriesComponent} from './containers/menu-entries.component';
 import {NotFoundPageComponent} from './components/not-found-page';
@@ -29,7 +29,7 @@ const COMPONENTS = [
     MaterialModule,
     AddressesEditModule,
     AddressesViewModule,
-    RouterModule.forChild([])
+    RouterModule.forChild([]),
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS
