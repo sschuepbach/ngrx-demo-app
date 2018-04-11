@@ -3,15 +3,15 @@ import {EntityState} from '@ngrx/entity';
 import * as fromAdapter from './address.adapter';
 import * as fromActions from '../actions/address';
 import {Address} from '../../shared/models/address';
-import {createFeatureSelector, createSelector} from '@ngrx/store';
-
 
 export interface State extends EntityState<Address> {
+  selectedAddressId: string | null;
 }
 
 export const initialState: State = fromAdapter.adapter.getInitialState({
   selectedAddressId: null
 });
+
 
 export function reducer(state = initialState, action: fromActions.AddressActions): State {
   switch (action.type) {
@@ -40,9 +40,3 @@ export function reducer(state = initialState, action: fromActions.AddressActions
   }
 }
 
-export const getArticleState = createFeatureSelector<State>('articleState');
-
-export const selectArticleIds = createSelector(getArticleState, fromAdapter.selectAddressIds);
-export const selectArticleEntities = createSelector(getArticleState, fromAdapter.selectAddressEntities);
-export const selectAllArticles = createSelector(getArticleState, fromAdapter.selectAllAddresses);
-export const articlesCount = createSelector(getArticleState, fromAdapter.addressesCount);

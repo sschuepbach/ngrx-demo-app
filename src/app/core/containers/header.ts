@@ -11,7 +11,6 @@ import {Observable} from 'rxjs/Observable';
     <div fxLayout="row" class="header" [style.background-color]="color$ | async">
       <div fxFlex>
         <h2>NgRx-Beispielprojekt: Adressbuch</h2>
-        <p>{{color$ | async}}</p>
       </div>
       <div fxFlex="50">
         <button mat-button (click)="generateColor()">Farbwechsel!</button>

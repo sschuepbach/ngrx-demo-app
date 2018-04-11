@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddressesFilterComponent } from './addresses-filter';
+import {AddressesFilterComponent} from './addresses-filter';
 
 describe('AddressesFilterComponent', () => {
   let component: AddressesFilterComponent;

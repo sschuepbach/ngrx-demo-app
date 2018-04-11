@@ -3,8 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MaterialModule} from '../material/material.module';
-import {AddressesViewModule} from '../addresses-view/addresses-view.module';
-import {AddressesEditModule} from '../addresses-edit/addresses-edit.module';
+import {AddressesModule} from '../addresses/addresses.module';
 
 import {AppComponent} from './components/app';
 import {FooterComponent} from './components/footer';
@@ -27,8 +26,7 @@ const COMPONENTS = [
     CommonModule,
     FlexLayoutModule,
     MaterialModule,
-    AddressesEditModule,
-    AddressesViewModule,
+    AddressesModule,
     RouterModule.forChild([]),
   ],
   declarations: COMPONENTS,

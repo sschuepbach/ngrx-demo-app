@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddAddressComponent } from './add-address';
+import {AddAddressComponent} from './add-address';
 
 describe('AddAddressComponent', () => {
   let component: AddAddressComponent;

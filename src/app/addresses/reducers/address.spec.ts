@@ -1,4 +1,4 @@
-import { reducer, initialState } from './address';
+import {initialState, reducer} from './address';
 
 describe('AddAddress Reducer', () => {
   describe('unknown action', () => {

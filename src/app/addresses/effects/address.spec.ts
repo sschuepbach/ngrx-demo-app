@@ -1,8 +1,8 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { provideMockActions } from '@ngrx/effects/testing';
-import { Observable } from 'rxjs/Observable';
+import {TestBed} from '@angular/core/testing';
+import {provideMockActions} from '@ngrx/effects/testing';
+import {Observable} from 'rxjs/Observable';
 
-import { AddressEffects } from './address';
+import {AddressEffects} from './address';
 
 describe('NewAddressService', () => {
   let actions$: Observable<any>;

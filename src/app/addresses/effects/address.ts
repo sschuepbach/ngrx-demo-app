@@ -1,6 +1,4 @@
-import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
-import { AddressActions, AddressActionTypes } from '../actions/address';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class AddressEffects {

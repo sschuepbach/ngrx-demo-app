@@ -1,16 +1,13 @@
 import {ActionReducer, ActionReducerMap, createFeatureSelector, createSelector, MetaReducer} from '@ngrx/store';
 import {environment} from '../../environments/environment';
-import * as fromAddress from '../addresses-edit/reducers/address';
 import * as fromLayout from '../core/reducers/layout';
 
 export interface State {
-  address: fromAddress.State;
   layout: fromLayout.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  address: fromAddress.reducer,
-  layout: fromLayout.reducer,
+  layout: fromLayout.reducer
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [logger] : [];
