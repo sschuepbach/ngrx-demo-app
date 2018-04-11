@@ -9,7 +9,9 @@ import {Observable} from 'rxjs/Observable';
   selector: 'app-addresses',
   template: `
     <app-addresses-filter></app-addresses-filter>
-    <app-addresses-list [addresses]="addresses$ | async"></app-addresses-list>`,
+    <div *ngFor="let address of addresses$ | async">
+      <app-address [address]="address"></app-address>
+    </div>`,
   styles: ['']
 })
 export class AddressesComponent {

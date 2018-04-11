@@ -2,15 +2,15 @@ import {Action} from '@ngrx/store';
 import {Address} from '../../shared/models/address';
 
 export enum AddressActionTypes {
-  AddAddressAction = '[EditAddress] Add Address',
-  AddAddressSuccessAction = '[EditAddress] Add Address Success',
-  AddAddressFailAction = '[Address] Add Address Fail',
-  ModifyAddressAction = '[Address] Modify Address',
-  ModifyAddressSuccessAction = '[Address] Modify Address Success',
-  ModifyAddressFailAction = '[Address] Modify Address Fail',
-  RemoveAddressAction = '[Address] Remove Address',
-  RemoveAddressSuccessAction = '[Address] Remove Address Success',
-  RemoveAddressFailAction = '[Address] Remove Address Fail',
+  AddAddressAction = '[EditAddress] Add AddressComponent',
+  AddAddressSuccessAction = '[EditAddress] Add AddressComponent Success',
+  AddAddressFailAction = '[AddressComponent] Add AddressComponent Fail',
+  ModifyAddressAction = '[AddressComponent] Modify AddressComponent',
+  ModifyAddressSuccessAction = '[AddressComponent] Modify AddressComponent Success',
+  ModifyAddressFailAction = '[AddressComponent] Modify AddressComponent Fail',
+  RemoveAddressAction = '[AddressComponent] Remove AddressComponent',
+  RemoveAddressSuccessAction = '[AddressComponent] Remove AddressComponent Success',
+  RemoveAddressFailAction = '[AddressComponent] Remove AddressComponent Fail',
 }
 
 export class AddAddress implements Action {

@@ -11,8 +11,8 @@ import {AddAddressComponent} from './containers/add-address';
 import * as fromAddress from './reducers';
 import {AddressEffects} from './effects/address';
 import {AddressesComponent} from './containers/addresses';
-import {AddressesListComponent} from './components/addresses-list';
 import {AddressesFilterComponent} from './containers/addresses-filter';
+import { AddressComponent } from './containers/address';
 
 const routes: Routes = [
   {path: 'addAddress', component: AddAddressComponent},
@@ -32,8 +32,8 @@ const routes: Routes = [
   declarations: [
     AddAddressComponent,
     AddressesComponent,
-    AddressesListComponent,
-    AddressesFilterComponent
+    AddressesFilterComponent,
+    AddressComponent
   ],
   exports: [
     AddAddressComponent,
