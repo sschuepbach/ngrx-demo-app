@@ -3,12 +3,12 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material/material.module';
-
-import {AddAddressComponent} from './containers/add-address';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {StoreModule} from '@ngrx/store';
-import * as fromAddress from './reducers';
 import {EffectsModule} from '@ngrx/effects';
+
+import {AddAddressComponent} from './containers/add-address';
+import * as fromAddress from './reducers';
 import {AddressEffects} from './effects/address';
 import {AddressesComponent} from './containers/addresses';
 import {AddressesListComponent} from './components/addresses-list';

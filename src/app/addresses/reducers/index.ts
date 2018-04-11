@@ -5,7 +5,7 @@ import * as fromAdapter from './address.adapter';
 import * as fromRoot from '../../reducers';
 
 export interface AddressState {
-  address: fromAddress.State;
+  addressEntities: fromAddress.State;
 }
 
 export interface State extends fromRoot.State {
@@ -13,15 +13,14 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers: ActionReducerMap<AddressState> = {
-  address: fromAddress.reducer
+  addressEntities: fromAddress.reducer
 };
 
-export const getState = createFeatureSelector<State>('address');
+export const getState = createFeatureSelector<AddressState>('address');
 
-// TODO: Fix dot notation
-export const getAddressState = createSelector(getState, (state) => state.address.address);
+export const getAddressEntities = createSelector(getState, (state) => state.addressEntities);
 
-export const selectAddressIds = createSelector(getAddressState, fromAdapter.selectAddressIds);
-export const selectAddressEntities = createSelector(getAddressState, fromAdapter.selectAddressEntities);
-export const selectAllAddresses = createSelector(getAddressState, fromAdapter.selectAllAddresses);
-export const addressesCount = createSelector(getAddressState, fromAdapter.addressesCount);
+export const selectAddressIds = createSelector(getAddressEntities, fromAdapter.selectAddressIds);
+export const selectAddressEntities = createSelector(getAddressEntities, fromAdapter.selectAddressEntities);
+export const selectAllAddresses = createSelector(getAddressEntities, fromAdapter.selectAllAddresses);
+export const addressesCount = createSelector(getAddressEntities, fromAdapter.addressesCount);
