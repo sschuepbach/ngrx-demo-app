@@ -12,11 +12,14 @@ import * as fromAddress from './reducers';
 import {AddressEffects} from './effects/address';
 import {AddressesComponent} from './containers/addresses';
 import {AddressesFilterComponent} from './containers/addresses-filter';
-import { AddressComponent } from './containers/address';
+import {AddressComponent} from './containers/address';
+import {ConnectFormDirective} from './directives/connect-form.directive';
+import {ModifyAddressComponent} from './containers/modify-address';
 
 const routes: Routes = [
   {path: 'addAddress', component: AddAddressComponent},
-  {path: 'addresses', component: AddressesComponent}
+  {path: 'addresses', component: AddressesComponent},
+  {path: 'modify', component: ModifyAddressComponent}
 ];
 
 @NgModule({
@@ -33,7 +36,9 @@ const routes: Routes = [
     AddAddressComponent,
     AddressesComponent,
     AddressesFilterComponent,
-    AddressComponent
+    AddressComponent,
+    ConnectFormDirective,
+    ModifyAddressComponent
   ],
   exports: [
     AddAddressComponent,

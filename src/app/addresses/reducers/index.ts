@@ -24,3 +24,10 @@ export const selectAddressIds = createSelector(getAddressEntities, fromAdapter.s
 export const selectAddressEntities = createSelector(getAddressEntities, fromAdapter.selectAddressEntities);
 export const selectAllAddresses = createSelector(getAddressEntities, fromAdapter.selectAllAddresses);
 export const addressesCount = createSelector(getAddressEntities, fromAdapter.addressesCount);
+
+export const selectedCurrentAddressId = createSelector(getAddressEntities, fromAddress.getSelectedAddressId);
+export const selectCurrentAddress = createSelector(
+  selectAddressEntities,
+  selectedCurrentAddressId,
+  (addressEntities, addressId) => addressEntities[addressId]
+);

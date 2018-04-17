@@ -11,6 +11,8 @@ export enum AddressActionTypes {
   RemoveAddressAction = '[AddressComponent] Remove AddressComponent',
   RemoveAddressSuccessAction = '[AddressComponent] Remove AddressComponent Success',
   RemoveAddressFailAction = '[AddressComponent] Remove AddressComponent Fail',
+  SelectAddressAction = '[EditAddress] Select Address',
+  ClearAddressesAction = '[EditAddress] Clear Addresses'
 }
 
 export class AddAddress implements Action {
@@ -76,6 +78,17 @@ export class RemoveAddressFail implements Action {
   }
 }
 
+export class SelectAddress implements Action {
+  readonly type = AddressActionTypes.SelectAddressAction;
+
+  constructor(public payload: { id: string }) {
+  }
+}
+
+export class ClearAddresses implements Action {
+  readonly type = AddressActionTypes.ClearAddressesAction;
+}
+
 export type AddressActions
   = AddAddress
   | AddAddressSuccess
@@ -85,4 +98,6 @@ export type AddressActions
   | ModifyAddressFail
   | RemoveAddress
   | RemoveAddressSuccess
-  | RemoveAddressFail;
+  | RemoveAddressFail
+  | SelectAddress
+  | ClearAddresses;

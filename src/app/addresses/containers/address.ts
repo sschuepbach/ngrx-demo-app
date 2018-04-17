@@ -4,6 +4,7 @@ import {Address} from '../../shared/models/address';
 import * as fromActions from '../actions/address';
 import * as fromFeature from '../reducers';
 import {Store} from '@ngrx/store';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-address',
@@ -12,7 +13,7 @@ import {Store} from '@ngrx/store';
       <li>{{address.firstname}} {{address.name}} ({{address.birthDate}})</li>
       <li>Ads: {{address.wantsAds ? 'yes' : 'no'}}</li>
     </ul>
-    <button mat-button>Ändern</button>
+    <button mat-button (click)="editAddress()">Ändern</button>
     <button mat-button (click)="deleteAddress()">Löschen</button>
   `,
   styles: [],
@@ -22,7 +23,7 @@ export class AddressComponent implements OnInit {
 
   @Input() address: Address;
 
-  constructor(private store: Store<fromFeature.State>) {
+  constructor(private store: Store<fromFeature.State>, private router: Router) {
 
   }
 
@@ -34,6 +35,8 @@ export class AddressComponent implements OnInit {
   }
 
   editAddress() {
+    this.store.dispatch(new fromActions.SelectAddress({id: this.address.id}));
+    this.router.navigateByUrl('/modify');
   }
 
 }
