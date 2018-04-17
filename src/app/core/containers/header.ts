@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import * as fromActions from '../actions/layout';
 import * as fromRoot from '../../reducers';
+import * as fromRouterActions from '../../actions/router';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -15,6 +16,8 @@ import {Observable} from 'rxjs/Observable';
       <div fxFlex="50">
         <button mat-button (click)="generateColor()">Farbwechsel!</button>
         <button mat-button (click)="toggleShowMenu()">Menü!</button>
+        <button mat-button (click)="goBack()">Zurück!</button>
+        <button mat-button (click)="goForward()">Vorwärts!</button>
       </div>
     </div>
   `,
@@ -57,6 +60,14 @@ export class HeaderComponent {
 
   toggleShowMenu() {
     this.store.dispatch(new fromActions.ToggleMenuVisibilityAction());
+  }
+
+  goBack() {
+    this.store.dispatch(new fromRouterActions.Back());
+  }
+
+  goForward() {
+    this.store.dispatch(new fromRouterActions.Forward());
   }
 
 
