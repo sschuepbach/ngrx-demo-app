@@ -11,7 +11,6 @@ export class ConnectFormDirective {
     if (val) {
       this.formGroupDirective.form.patchValue(val);
       this.formGroupDirective.form.markAsPristine();
-      console.log(this.formGroupDirective.form);
     }
   }
 

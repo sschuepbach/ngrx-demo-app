@@ -3,8 +3,6 @@ import {EntityState} from '@ngrx/entity';
 import * as fromAdapter from './address.adapter';
 import * as fromActions from '../actions/address';
 import {Address} from '../../shared/models/address';
-import {createFeatureSelector, createSelector} from '@ngrx/store';
-import * as fromFeature from './index';
 
 export interface State extends EntityState<Address> {
   selectedAddressId: string | null;
@@ -38,7 +36,7 @@ export function reducer(state = initialState, action: fromActions.AddressActions
     }
 
     case fromActions.AddressActionTypes.ClearAddressesAction: {
-      return fromAdapter.adapter.removeAll({...state, selectedAddressId: null});
+      return {...state, selectedAddressId: null};
     }
 
     // TODO: Add other (success / fail) actions

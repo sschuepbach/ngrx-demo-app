@@ -20,10 +20,10 @@ export const getState = createFeatureSelector<AddressState>('address');
 
 export const getAddressEntities = createSelector(getState, (state) => state.addressEntities);
 
-export const selectAddressIds = createSelector(getAddressEntities, fromAdapter.selectAddressIds);
+// export const selectAddressIds = createSelector(getAddressEntities, fromAdapter.selectAddressIds);
 export const selectAddressEntities = createSelector(getAddressEntities, fromAdapter.selectAddressEntities);
 export const selectAllAddresses = createSelector(getAddressEntities, fromAdapter.selectAllAddresses);
-export const addressesCount = createSelector(getAddressEntities, fromAdapter.addressesCount);
+// export const addressesCount = createSelector(getAddressEntities, fromAdapter.addressesCount);
 
 export const selectedCurrentAddressId = createSelector(getAddressEntities, fromAddress.getSelectedAddressId);
 export const selectCurrentAddress = createSelector(

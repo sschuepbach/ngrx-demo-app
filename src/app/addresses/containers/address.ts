@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 import {Address} from '../../shared/models/address';
 import * as fromActions from '../actions/address';
@@ -9,25 +9,25 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-address',
   template: `
-    <ul>
-      <li>{{address.firstname}} {{address.name}} ({{address.birthDate}})</li>
-      <li>Ads: {{address.wantsAds ? 'yes' : 'no'}}</li>
-    </ul>
-    <button mat-button (click)="editAddress()">Ändern</button>
-    <button mat-button (click)="deleteAddress()">Löschen</button>
+    <div [ngStyle]="{'background-color': getBackgroundColor()}">
+      <ul>
+        <li>{{address.firstname}} {{address.name}} ({{address.birthDate}})</li>
+        <li>Ads: {{address.wantsAds ? 'yes' : 'no'}}</li>
+      </ul>
+      <button mat-button (click)="editAddress()">Ändern</button>
+      <button mat-button (click)="deleteAddress()">Löschen</button>
+    </div>
   `,
-  styles: [],
+  styles: ['div {border-bottom: 1px solid #ccc; margin:0; padding:3px;}'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent {
 
   @Input() address: Address;
+  @Input() even: boolean;
 
   constructor(private store: Store<fromFeature.State>, private router: Router) {
 
-  }
-
-  ngOnInit() {
   }
 
   deleteAddress() {
@@ -37,6 +37,10 @@ export class AddressComponent implements OnInit {
   editAddress() {
     this.store.dispatch(new fromActions.SelectAddress({id: this.address.id}));
     this.router.navigateByUrl('/modify');
+  }
+
+  getBackgroundColor() {
+    return this.even ? '#eee' : '#fff';
   }
 
 }
