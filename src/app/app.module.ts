@@ -11,6 +11,7 @@ import {AppEffects} from './app.effects';
 import {CoreModule} from './core/core.module';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundPageComponent} from './core/components/not-found-page';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
 
 const routes: Routes = [
   {path: '', redirectTo: '/addresses', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
     BrowserModule,
     CoreModule,
     StoreModule.forRoot(reducers, {metaReducers}),
+    StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
     RouterModule.forRoot(routes)
