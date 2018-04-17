@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Address} from '../../shared/models/address';
 import * as AddressActions from '../actions/address';
 import * as fromAddress from '../reducers/address';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-address',
@@ -59,7 +60,7 @@ export class AddAddressComponent {
 
   addressForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<fromAddress.State>) {
+  constructor(private fb: FormBuilder, private store: Store<fromAddress.State>, private router: Router) {
     this.createForm();
   }
 
@@ -76,6 +77,7 @@ export class AddAddressComponent {
     const address: Address = this.addressForm.getRawValue();
     address.id = Math.random().toString().substr(2);
     this.store.dispatch(new AddressActions.AddAddress({address: address}));
+    this.router.navigateByUrl('/addresses');
   }
 
 }
