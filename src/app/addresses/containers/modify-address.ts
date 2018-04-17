@@ -48,7 +48,7 @@ import {Router} from '@angular/router';
         </div>
         <div class="form-entry">
           <button mat-button type="submit" (click)="saveAddress()">Speichern</button>
-          <button mat-button type="reset">Abbrechen</button>
+          <button mat-button type="reset" (click)="abort()">Abbrechen</button>
         </div>
       </form>
     </div>
@@ -80,12 +80,16 @@ export class ModifyAddressComponent implements OnDestroy {
     });
   }
 
- ngOnDestroy() {
-    // this.store.dispatch(new fromActions.ClearAddresses());
- }
+  ngOnDestroy() {
+    this.store.dispatch(new fromActions.ClearAddresses());
+  }
 
   saveAddress() {
     this.store.dispatch(new fromActions.ModifyAddress({id: this.addressId, changes: (this.addressForm.getRawValue() as Address)}));
+    this.router.navigateByUrl('/addresses');
+  }
+
+  abort() {
     this.router.navigateByUrl('/addresses');
   }
 
